@@ -1,0 +1,95 @@
+// Place all the styles related to the tweetsctlr controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+body{
+	background : #e6e6e6;
+	max-width: 1200px;
+	margin: 0 auto;
+	font-family: 'Slabo 27px', serif;
+}
+
+.header-wrapper{
+	min-height: 80px;
+	background: rgba(128, 128, 128, 0.38);
+	padding: 10px 20px;
+	color: white;
+	text-align:center;
+}
+
+header h1,
+header h2{
+	display: inline-block;
+}
+
+.input-container label{
+	font-size: 18px;
+}
+
+.txt-box{
+	border-radius: 5px;
+ 	height: 25px;
+ 	width: 20%;;
+ 	margin: 0 2%;
+}
+
+.btn{
+  background: rgba(128, 128, 128, 0.56);
+  color: white;
+  padding: 8px 14px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.container{
+	margin-top: 30px;
+}
+
+.txt-center{
+	text-align: center;
+}
+
+.warning{
+	color: red;
+	margin-top: 50px;
+}
+
+.tweets-container{
+	margin: 20px 5px;
+	padding: 0px 5px;
+}
+
+.tweet{
+	background: rgba(194, 188, 188, 0.45);
+	margin: 10px 10px;
+	padding: 20px;
+	border-radius: 5px;
+	
+}
+
+.tweet li{
+	height: 30px;
+}
+
+.tweet img{
+	display : block;
+	float:left;
+	height: 100%
+}
+
+.tweet-data{
+	display: block;
+	padding-left: 10px;
+	overflow: hidden;
+	height: 100%;
+}
+
+.tweet a{
+	display: block;
+}
+
+ul li{
+	list-style-type: none;
+
+}
+
