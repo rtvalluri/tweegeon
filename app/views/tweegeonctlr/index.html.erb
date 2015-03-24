@@ -2,30 +2,33 @@
 <html>
 <head>
 	<title>Tweegeon-It fetches any User's Tweets</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link href='http://fonts.googleapis.com/css?family=Slabo+27px' rel='stylesheet' type='text/css'>
 </head>
 <body>
 	<header>
-		<div class="header-wrapper">
-			<h1>TWEEGEON</h1><h2>--It fetches any User's Tweets</label>
+		<div class="header-wrapper row container-fluid">
+			<div class="col-md-2 col-sm-1"></div>
+			<h1 class="col-md-2 col-sm-3 col-xs-12 text-center">TWEEGEON</h1>
+			<h2 class="col-md-6 col-sm-6 col-xs-12 text-center">-- It fetches any User's Tweets</label>
 		</div>
 	</header>
-	<div class="container">
-		<div class="input-container txt-center">
+	<div class="container-fluid">
+		<div class="input-container txt-center row container-fluid">
 			<%= form_tag(tweegeonctlr_index_path, method: "get") do %>
-			  <%= label_tag("Username/Screen name :") %>
-			  <%= text_field "user", "name", :class=>'txt-box' %>
-			  <%= submit_tag("Get Tweets",:class=>'btn') %>
+			  <span ><%= label_tag("Username/Screen name :") %></span>
+			  <span ><%= text_field "user", "name", :class=>'txt-box' %></span>
+			  <span ><%= submit_tag("Get Tweets",:class=>'btn') %></span>			 
 			<% end %>
 		</div>
 		<%if @tweets.to_s != '' %>
-			<ul class="tweets-container">
+			<ul class="tweets-container container-fluid ">
 				<% @tweets.each do |tweet| %>
-					<li class="tweet"><%= image_tag(tweet.user.profile_image_url)%><span class="tweet-data"><%= label_tag(tweet.text) %><%= link_to tweet.user.screen_name , "https://www.twitter.com/#{tweet.user.screen_name}" %></span></li>
+					<li class="tweet col-md-12 col-sm-12 col-xs-12"><%= image_tag(tweet.user.profile_image_url)%><span class="tweet-data"><%= label_tag(tweet.text) %><%= link_to tweet.user.screen_name , "https://www.twitter.com/#{tweet.user.screen_name}" %></span></li>
 				<% end %>
 			</ul>
 		<% else %>
-			<h3 class="txt-center warning">Please Enter Valid username to retrieve Tweets</h3>
+			<h3 class="txt-center warning col-md-12 col-sm-12 col-xs-12">Please Enter Valid username to retrieve Tweets</h3>
 		<% end %>
 	</div>
 </body>
