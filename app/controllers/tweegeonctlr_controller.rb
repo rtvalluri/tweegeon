@@ -4,10 +4,10 @@ class TweegeonctlrController < ApplicationController
 		puts username
 		if username.to_s != ''
 			client = Twitter::REST::Client.new do |config|
-				config.consumer_key        = "aGzYCh7xPSXOYdOOPDAOSdEgn"
-				config.consumer_secret     = "Lhn7bn3CCOA09lOdmiyOGeLwc0fjJlPpSSkZ4O0fCzj3Q8WW59"
-				config.access_token        = "2693666210-tRwFYClnoD2fcgPVUtf3HBQJY3Kkj9cnwywRLjG"
-				config.access_token_secret = "KNnwLzm47YIzpIuQ1hiK2jsUMtpqgcGvbYTa1DSP44eeO"
+				config.consumer_key        = "your consumer key"
+				config.consumer_secret     = "your consumer secret"
+				config.access_token        = "your access token"
+				config.access_token_secret = "your access token secret"
 			end
 			@tweets = client.user_timeline(username)
 		end
