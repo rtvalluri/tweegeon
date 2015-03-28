@@ -1,35 +1,34 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<title>Tweegeon-It fetches any User's Tweets</title>
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link href='http://fonts.googleapis.com/css?family=Slabo+27px' rel='stylesheet' type='text/css'>
-</head>
-<body>
-	<header>
-		<div class="header-wrapper row container-fluid">
-			<div class="col-md-2 col-sm-1"></div>
-			<h1 class="col-md-2 col-sm-3 col-xs-12 text-center">TWEEGEON</h1>
-			<h2 class="col-md-6 col-sm-6 col-xs-12 text-center">-- It fetches any User's Tweets</label>
-		</div>
-	</header>
-	<div class="container-fluid">
-		<div class="input-container txt-center row container-fluid">
-			<%= form_tag(tweegeonctlr_index_path, method: "get") do %>
-			  <span ><%= label_tag("Username/Screen name :") %></span>
-			  <span ><%= text_field "user", "name", :class=>'txt-box' %></span>
-			  <span ><%= submit_tag("Get Tweets",:class=>'btn') %></span>			 
-			<% end %>
-		</div>
-		<%if @tweets.to_s != '' %>
-			<ul class="tweets-container container-fluid ">
-				<% @tweets.each do |tweet| %>
-					<li class="tweet col-md-12 col-sm-12 col-xs-12"><%= image_tag(tweet.user.profile_image_url)%><span class="tweet-data"><%= label_tag(tweet.text) %><%= link_to tweet.user.screen_name , "https://www.twitter.com/#{tweet.user.screen_name}" %></span></li>
-				<% end %>
-			</ul>
-		<% else %>
-			<h3 class="txt-center warning col-md-12 col-sm-12 col-xs-12">Please Enter Valid username to retrieve Tweets</h3>
+<header>
+	<div class="header-wrapper container-fluid">
+		<h1 class="text-center"><a href="https://tweegeon.herokuapp.com">TWEEGEON</a></h1>
+	</div>
+</header>
+<div class="container-fluid">
+	<div class="input-container txt-center container-fluid">
+		<%= form_tag(tweegeonctlr_index_path, method: "get") do %>
+			<span class="col-md-1"></span>
+			<span class="col-md-3 col-sm-4 col-xs-12 text-center"><%= label_tag("Enter Twitter Username :") %></span>
+			<span class="col-md-4 col-sm-4 col-xs-12 text-center"><%= text_field "user", "name", :class=>'txt-box', :autofocus=>true %></span>
+			<span class="col-md-3 col-sm-3 col-xs-12 text-center"><%= submit_tag("Get Tweets",:class=>'btn',:id=>'sub') %></span>			 
+			<span class="col-md-1"></span>
 		<% end %>
 	</div>
-</body>
-</html>
+	<%if @tweets.to_s != '' %>
+		<ul class="tweets-container container-fluid ">
+			<% @tweets.each do |tweet| %>
+				<li class="tweet col-md-12 col-sm-12 col-xs-12"><%= image_tag(tweet.user.profile_image_url)%><span class="tweet-data"><%= label_tag(tweet.text) %><%= link_to tweet.user.screen_name , "https://www.twitter.com/#{tweet.user.screen_name}" %></span>
+				</li>
+			<% end %>
+		</ul>
+	<% else %>
+		<h3 class="txt-center wn col-md-12 col-sm-12 col-xs-12">Welcome to Tweegeon. Please enter any twitter username to retrieve recent tweets</h3>
+		<% if @response != '' %>
+			<h3 class="txt-center warning col-md-12 col-sm-12 col-xs-12"><%= @response %></h3>
+		<% end %>
+	<% end %>
+<footer>
+	<div class="container-fluid footer-wrapper text-center">
+		<p>This Site is developed by <a href="https://github.com/rtvalluri">Raviteja Valluri</a></p>
+	</div>
+</footer>
+</div>
